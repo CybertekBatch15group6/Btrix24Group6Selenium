@@ -53,5 +53,30 @@ public class LoginPage {
         password.sendKeys(ConfigurationReader.getProperty("password"), Keys.ENTER);
     }
 
+    /**
+     * Login as HR user
+     */
+    public void loginAsHr(){
+        username.sendKeys(ConfigurationReader.getProperty("hr"));
+        password.sendKeys(ConfigurationReader.getProperty("password"));
+        login.click();
+    }
 
+    /**
+     * Login as Help Desk User
+     */
+    public void loginAsHelpDesk(){
+        username.sendKeys(ConfigurationReader.getProperty("help_desk"));
+        password.sendKeys(ConfigurationReader.getProperty("password"));
+        login.click();
+    }
+
+    /**
+     * Login as Marketing User
+     */
+    public void loginAsMarketing(){
+        username.sendKeys(ConfigurationReader.getProperty("marketing"));
+        password.sendKeys(ConfigurationReader.getProperty("password"));
+        login.click();
+    }
 }
