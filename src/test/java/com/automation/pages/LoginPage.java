@@ -54,6 +54,7 @@ public class LoginPage {
     }
 
     /**
+     * Method to login, version #3
      * Login as HR user
      */
     public void loginAsHr(){
@@ -63,6 +64,7 @@ public class LoginPage {
     }
 
     /**
+     * Method to login, version #4
      * Login as Help Desk User
      */
     public void loginAsHelpDesk(){
@@ -72,6 +74,7 @@ public class LoginPage {
     }
 
     /**
+     * Method to login, version #5
      * Login as Marketing User
      */
     public void loginAsMarketing(){
