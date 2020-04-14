@@ -36,7 +36,7 @@ public class AbstractTestBase {
 
     @BeforeMethod
     public void setup(){
-        String URL= ConfigurationReader.getProperty("environment");
+        String URL= ConfigurationReader.getProperty("qa1");
         Driver.getDriver().get(URL);
         Driver.getDriver().manage().window().maximize();
         BrowserUtils.waitForPageToLoad(10);
