@@ -6,6 +6,7 @@ import com.automation.utilities.Driver;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -15,6 +16,7 @@ import org.testng.annotations.BeforeTest;
 import java.io.IOException;
 
 public class AbstractTestBase {
+    protected WebDriver driver =Driver.getDriver();
     protected WebDriverWait wait;
     protected static ExtentReports extentReports;
     protected static ExtentHtmlReporter extentHtmlReporter;

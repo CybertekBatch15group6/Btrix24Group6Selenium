@@ -32,15 +32,18 @@ public class Alex extends AbstractTestBase {
         FilterAndSearch filterAndSearch = new FilterAndSearch();
         filterAndSearch.clicktheFilterAndSearch();
 
-        List<WebElement> workflow = Driver.getDriver().findElements(By.xpath("//div[@class='main-ui-filter-sidebar-item']"));
-        //   List<String> list =Arrays.asList("WORK","FAVORITES","MY ACTIVITY","ANNOUNCEMENTS","WORKFLOWS");
-
-
-        for (WebElement eachelment: workflow){
-            BrowserUtils.wait(10);
-            System.out.println(eachelment.getText());
-            Assert.assertTrue(eachelment.isDisplayed());
-        }
+        BrowserUtils.waitForPageToLoad(10);
+        BrowserUtils.wait(5);
+        filterAndSearch.verifySearchInput();
+//        List<WebElement> workflow = Driver.getDriver().findElements(By.xpath("//div[@class='main-ui-filter-sidebar-item']"));
+//        //   List<String> list =Arrays.asList("WORK","FAVORITES","MY ACTIVITY","ANNOUNCEMENTS","WORKFLOWS");
+//
+//
+////        for (WebElement eachelment: workflow){
+////            BrowserUtils.wait(10);
+////            System.out.println(eachelment.getText());
+////            Assert.assertTrue(eachelment.isDisplayed());
+////        }
 
     }
 
