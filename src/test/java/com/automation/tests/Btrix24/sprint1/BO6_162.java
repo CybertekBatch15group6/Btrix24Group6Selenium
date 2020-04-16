@@ -41,8 +41,8 @@ public class BO6_162 extends AbstractTestBase {
         loginPage.login(username,password);
         List<WebElement> names = driver.findElements(By.className("feed-post-user-name"));
         names.get(0).click();
-        String actual  = driver.findElement(By.xpath("//*[@id=\"bx_left_menu_menu_company\"]/a/span")).getText();
-        String expected = "Employees";
+        String actual  = driver.findElement(By.xpath("//*[@id=\"workarea-content\"]/div/div/div[3]/table/tbody/tr[1]/td")).getText();
+        String expected = "Contact information";
         assertEquals(actual, expected);
         extentTest.pass("Successfully!");
 
