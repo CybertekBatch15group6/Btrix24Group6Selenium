@@ -18,6 +18,9 @@ public class TaskTab extends LoginPage {
     @FindBy(css = "[id*='task-priority']")
     WebElement priorityCheckbox;
 
+
+
+
     public void createTask() {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[text()='Task']"))).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[id*='task-priority']"))).click();

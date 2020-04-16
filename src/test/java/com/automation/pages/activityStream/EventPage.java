@@ -25,6 +25,8 @@ public class EventPage extends AbstractPageBase {
     @FindBy(id = "undefined")
     private WebElement saveLink;
 
+
+
     /**
      * Add link to Event
      * @param text accepts a text for the link
