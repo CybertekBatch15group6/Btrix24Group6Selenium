@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
+//alex
 //        1. User should be able to search by clicking on default filters. (work, favorate, my activity, annoucements, and workflows)
 //        2. User should be able to search by selecting Date, Type, Author, To and more default dropdowns.
 //        3. User should be able to type-in keyword to search previous posts.
@@ -34,6 +34,8 @@ public class Alex extends AbstractTestBase {
 
         BrowserUtils.waitForPageToLoad(10);
         BrowserUtils.wait(5);
+
+
         filterAndSearch.verifySearchInput();
 //        List<WebElement> workflow = Driver.getDriver().findElements(By.xpath("//div[@class='main-ui-filter-sidebar-item']"));
 //        //   List<String> list =Arrays.asList("WORK","FAVORITES","MY ACTIVITY","ANNOUNCEMENTS","WORKFLOWS");
