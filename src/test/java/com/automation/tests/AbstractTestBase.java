@@ -36,16 +36,16 @@ public class AbstractTestBase {
 
     @BeforeMethod
     public void setup(){
-        String URL= ConfigurationReader.getProperty("environment");
+        String URL= ConfigurationReader.getProperty("qa1");
         Driver.getDriver().get(URL);
         Driver.getDriver().manage().window().maximize();
         BrowserUtils.waitForPageToLoad(10);
     }
-
-    @AfterTest
-    public void afterTest() {
-        extentReports.flush();
-    }
+//
+//    @AfterTest
+//    public void afterTest() {
+//        extentReports.flush();
+//    }
 
     @AfterMethod
     public void teardown(ITestResult testResult){
@@ -60,7 +60,7 @@ public class AbstractTestBase {
                 throw new RuntimeException("Failed to attach screenshot");
             }
         }else if(testResult.getStatus() == ITestResult.SUCCESS){
-            extentTest.pass(testResult.getName());
+          //  extentTest.pass(testResult.getName());
         }else if(testResult.getStatus() == ITestResult.SKIP){
             extentTest.skip(testResult.getName());
         }
