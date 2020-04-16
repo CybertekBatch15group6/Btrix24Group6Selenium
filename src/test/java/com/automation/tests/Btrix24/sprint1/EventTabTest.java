@@ -7,8 +7,8 @@ import com.automation.utilities.BrowserUtils;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class Canan extends AbstractTestBase {
-    /*User Story #3
+public class EventTabTest extends AbstractTestBase {
+    /*User Story #3 - Tester Canan
     As a user, I should be able to create
     events by clicking on Event tab under Activity Stream.*/
 
