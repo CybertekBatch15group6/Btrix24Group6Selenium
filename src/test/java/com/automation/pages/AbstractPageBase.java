@@ -11,12 +11,10 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
 public abstract class AbstractPageBase {
     protected WebDriver driver = Driver.getDriver();
     protected WebDriverWait wait = new WebDriverWait(driver, 25);
     protected Actions actions = new Actions(driver);
-
 
     @FindBy(css = "#user-name")
     protected WebElement currentUser;
@@ -69,10 +67,15 @@ public abstract class AbstractPageBase {
 
         BrowserUtils.wait(4);
 
-
-
+  /**
+     * This method will navigate to user specified tab in ActivityStream module
+     * @param tabName user will enter tab name. Case Sensitive!!
+     */
+    public void activityNavigation(String tabName){
+        BrowserUtils.waitForPageToLoad(10);
+        String path="//span[text()='" + tabName + "']";
+        WebElement tab = driver.findElement(By.xpath(path));
+        wait.until(ExpectedConditions.visibilityOf(tab));
+        tab.click();
     }
-
-
-
 }
