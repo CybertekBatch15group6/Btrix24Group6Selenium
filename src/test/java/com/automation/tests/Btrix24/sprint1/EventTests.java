@@ -4,10 +4,11 @@ import com.automation.pages.LoginPage;
 import com.automation.pages.activityStream.EventPage;
 import com.automation.tests.AbstractTestBase;
 import com.automation.utilities.BrowserUtils;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class EventTabTest extends AbstractTestBase {
+public class EventTests extends AbstractTestBase {
     /*User Story #3 - Tester Canan
     As a user, I should be able to create
     events by clicking on Event tab under Activity Stream.*/
@@ -21,11 +22,25 @@ public class EventTabTest extends AbstractTestBase {
         BrowserUtils.waitForPageToLoad(10);
         loginPage.login(username,password);
         EventPage eventPage = new EventPage();
-        eventPage.ActivityNavigation("Event");
+        eventPage.activityNavigation("Event");
         eventPage.addLinkToEvent("SIS","www.sislife.org");
 
         extentTest.pass("Attached Link to Event Successfully!");
+    }
 
+    @Test (dataProvider = "credentials")
+    public void uploadFileToEvent (String username, String password){
+        extentTest = extentReports.createTest("Attach Link to Event");
+
+        LoginPage loginPage = new LoginPage();
+        BrowserUtils.waitForPageToLoad(10);
+        loginPage.login(username,password);
+        EventPage eventPage = new EventPage();
+        eventPage.activityNavigation("Event");
+        eventPage.clickUploadFilesBtn();
+        eventPage.uploadByPath();
+
+        extentTest.pass("Attached Link to Event Successfully!");
     }
 
     @DataProvider
@@ -36,4 +51,7 @@ public class EventTabTest extends AbstractTestBase {
                 {"hr12@cybertekschool.com", "UserUser"}
         };
     }
+
+
+
 }

@@ -22,7 +22,7 @@ public class AbstractPageBase {
      * This method will navigate to user specified tab in ActivityStream module
      * @param tabName user will enter tab name. Case Sensitive!!
      */
-    public void ActivityNavigation(String tabName){
+    public void activityNavigation(String tabName){
         BrowserUtils.waitForPageToLoad(10);
         String path="//span[text()='" + tabName + "']";
         WebElement tab = driver.findElement(By.xpath(path));

@@ -12,6 +12,12 @@ public class EventPage extends AbstractPageBase {
     @FindBy (id = "bx-b-uploadfile-blogPostForm_calendar")
     protected WebElement UploadFilesBtn;
 
+    @FindBy(id = "bx-b-uploadfile-blogPostForm")
+    private WebElement uploadFiles;
+
+    @FindBy(name = "bxu_files[]")
+    private WebElement uploadfilesandimages;
+
     //link
     @FindBy(xpath = "//span[@id='bx-b-link-blogPostForm_calendar']")
     private WebElement link;
@@ -43,6 +49,25 @@ public class EventPage extends AbstractPageBase {
         saveLink.click();
         BrowserUtils.wait(2);
     }
+
+    public void clickUploadFilesBtn() {
+        wait.until(ExpectedConditions.elementToBeClickable(UploadFilesBtn)).click();
+    }
+
+    public void uploadByPath() {
+        String path="/Users/cananarikan/Desktop/Resume.png";
+
+       /* if (System.getProperty("os.name").toLowerCase().contains("mac")) {
+            path = System.getProperty("user.dir")+"/filename";
+        } else {
+            path = System.getProperty("user.dir")+"\\filename";
+        }*/
+
+        BrowserUtils.wait(3);
+        uploadfilesandimages.sendKeys(path);
+        BrowserUtils.wait(3);
+    }
+
 
 
 }
