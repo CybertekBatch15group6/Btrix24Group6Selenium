@@ -35,7 +35,8 @@ public class FilterAndSearch extends AbstractPageBase {
 //        filterAndSearch.findElement(By.xpath("//input[@id='LIVEFEED_search']")).click();
 
     }
-
+    //span[@class='menu-item-link-text'][contains(text(),'Activity Stream')]
+////span[@class='bxhtmled-top-bar-btn bxhtmled-button-link']
     public void verifySearchInput(){
 
         List<WebElement> workflow = Driver.getDriver().findElements(By.xpath("//div[@class='main-ui-filter-sidebar-item']"));
@@ -45,6 +46,12 @@ public class FilterAndSearch extends AbstractPageBase {
             System.out.println(eachelment.getText());
             Assert.assertTrue(eachelment.isDisplayed());
         }
+
+
+
+
+
+
 
     }
 

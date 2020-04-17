@@ -3,6 +3,7 @@ package com.automation.tests;
 import com.automation.utilities.BrowserUtils;
 import com.automation.utilities.ConfigurationReader;
 import com.automation.utilities.Driver;
+import com.automation.utilities.ExcelUtil;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
@@ -21,6 +22,9 @@ public class AbstractTestBase {
     protected static ExtentReports extentReports;
     protected static ExtentHtmlReporter extentHtmlReporter;
     protected static ExtentTest extentTest;
+
+    protected static int row = 1;
+    protected ExcelUtil excelUtil;
 
     @BeforeTest
     public void beforeTest() {
@@ -51,21 +55,21 @@ public class AbstractTestBase {
 
     @AfterMethod
     public void teardown(ITestResult testResult){
-        if (testResult.getStatus() == ITestResult.FAILURE) {
-            String screenshotLocation = BrowserUtils.getScreenshot(testResult.getName());
-            try {
-                extentTest.fail(testResult.getName());//test name that failed
-                extentTest.addScreenCaptureFromPath(screenshotLocation);//screenshot as an evidence
-                extentTest.fail(testResult.getThrowable());//error message
-            } catch (IOException e) {
-                e.printStackTrace();
-                throw new RuntimeException("Failed to attach screenshot");
-            }
-        }else if(testResult.getStatus() == ITestResult.SUCCESS){
-          //  extentTest.pass(testResult.getName());
-        }else if(testResult.getStatus() == ITestResult.SKIP){
-            extentTest.skip(testResult.getName());
-        }
+//        if (testResult.getStatus() == ITestResult.FAILURE) {
+//            String screenshotLocation = BrowserUtils.getScreenshot(testResult.getName());
+//            try {
+//                extentTest.fail(testResult.getName());//test name that failed
+//                extentTest.addScreenCaptureFromPath(screenshotLocation);//screenshot as an evidence
+//                extentTest.fail(testResult.getThrowable());//error message
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//                throw new RuntimeException("Failed to attach screenshot");
+//            }
+//        }else if(testResult.getStatus() == ITestResult.SUCCESS){
+//          //  extentTest.pass(testResult.getName());
+//        }else if(testResult.getStatus() == ITestResult.SKIP){
+//            extentTest.skip(testResult.getName());
+//        }
 
         BrowserUtils.wait(3);
         Driver.closeDriver();
