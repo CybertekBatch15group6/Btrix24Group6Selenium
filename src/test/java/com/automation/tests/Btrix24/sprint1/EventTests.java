@@ -30,7 +30,7 @@ public class EventTests extends AbstractTestBase {
 
     @Test (dataProvider = "credentials")
     public void uploadFileToEvent (String username, String password){
-        extentTest = extentReports.createTest("Attach Link to Event");
+        extentTest = extentReports.createTest("Upload File to Event");
 
         LoginPage loginPage = new LoginPage();
         BrowserUtils.waitForPageToLoad(10);
@@ -40,7 +40,7 @@ public class EventTests extends AbstractTestBase {
         eventPage.clickUploadFilesBtn();
         eventPage.uploadByPath();
 
-        extentTest.pass("Attached Link to Event Successfully!");
+        extentTest.pass("Upload File to Event Successfully!");
     }
 
     @DataProvider
