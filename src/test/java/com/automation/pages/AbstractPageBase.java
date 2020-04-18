@@ -49,11 +49,11 @@ public abstract class AbstractPageBase {
 
     //create one for MORE feature
 
-    public void navigateToMoveFeature(String moreFeature) {
+    public void navigateToMoreFeature(String moreFeature) {
 
-        String moreXpath = "(//span[text()='More'])[1]";
+        String moreXpath = "//span[@id='feed-add-post-form-tab-file']";
 
-        String moreFeatureXpath = "//span[@class='menu-popup-item-text' and text()='" + moreFeature + "']";
+        String moreFeatureXpath = "//span[@class='menu-popup-item-text'][contains(text(),'"+moreFeature+"')]";
 
         WebElement more = driver.findElement(By.xpath(moreXpath));
 
