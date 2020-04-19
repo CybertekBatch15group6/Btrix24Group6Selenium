@@ -28,8 +28,8 @@ public class Alex extends AbstractTestBase {
 
 
     @Test
-    public void searchAndFilters(){
-        LoginPage loginPage=new LoginPage();
+    public void searchAndFilters() {
+        LoginPage loginPage = new LoginPage();
         loginPage.login();
         BrowserUtils.waitForPageToLoad(3);
 
@@ -54,8 +54,8 @@ public class Alex extends AbstractTestBase {
     }
 
     @Test
-    public void uploadfile(){
-        LoginPage loginPage=new LoginPage();
+    public void uploadfile() {
+        LoginPage loginPage = new LoginPage();
         loginPage.login();
         BrowserUtils.waitForPageToLoad(3);
 
@@ -73,20 +73,19 @@ public class Alex extends AbstractTestBase {
     }
 
 
-
     @Test
-    public void interactWithEmployees(){
-        LoginPage loginPage=new LoginPage();
+    public void interactWithEmployees() {
+        LoginPage loginPage = new LoginPage();
         loginPage.login();
         List<WebElement> names = driver.findElements(By.className("feed-post-user-name"));
-       // for (WebElement eachelment: names){
-            BrowserUtils.waitForPageToLoad(3);
-            BrowserUtils.wait(4);
-            names.get(2).click();
-       WebElement contactInfo= driver.findElement(By.xpath("//td[contains(text(),'Contact information')]"));
+        // for (WebElement eachelment: names){
+        BrowserUtils.waitForPageToLoad(3);
+        BrowserUtils.wait(4);
+        names.get(2).click();
+        WebElement contactInfo = driver.findElement(By.xpath("//td[contains(text(),'Contact information')]"));
         String expected = "Contact information";
         BrowserUtils.wait(6);
-        Assert.assertEquals(contactInfo.getText(),expected);
+        Assert.assertEquals(contactInfo.getText(), expected);
 
     }
 
@@ -96,26 +95,23 @@ public class Alex extends AbstractTestBase {
 
         String path = "username.xlsx";
         String spreadSheet = "Sheet1";
-        ExcelUtil excelUtil = new ExcelUtil(path,spreadSheet);
+        ExcelUtil excelUtil = new ExcelUtil(path, spreadSheet);
         return excelUtil.getDataArray();
-    };
+    }
+
+    ;
 
     @Test(dataProvider = "credentials")
     public void clickingOnName(String username, String password) {
-        extentTest = extentReports.createTest("Click On Profile ");
-
-//        String path = "username.xlsx";
-//        String spreadSheet = "Sheet1";
-//        ExcelUtil excelUtil = new ExcelUtil(path,spreadSheet);
 
         LoginPage loginPage = new LoginPage();
         BrowserUtils.waitForPageToLoad(10);
         loginPage.login(username, password);
-      //  excelUtil.setCellData("PASSED","result",row++);
+        //  excelUtil.setCellData("PASSED","result",row++);
 
         List<WebElement> names = driver.findElements(By.className("feed-post-user-name"));
         names.get(0).click();
-      WebElement actual  = driver.findElement(By.xpath("//td[contains(text(),'Contact information')]"));
+        WebElement actual = driver.findElement(By.xpath("//td[contains(text(),'Contact information')]"));
         String expected = "Contact information";
         Assert.assertEquals(actual.getText(), expected);
         extentTest.pass("Successfully!");
@@ -123,17 +119,17 @@ public class Alex extends AbstractTestBase {
     }
 
     @Test
-    public void clickmessage(){
-        LoginPage loginPage=new LoginPage();
+    public void clickmessage() {
+        LoginPage loginPage = new LoginPage();
         loginPage.login();
 
-        WebElement clickMessage =driver.findElement(By.xpath("//span[contains(text(),'Message')]"));
+        WebElement clickMessage = driver.findElement(By.xpath("//span[contains(text(),'Message')]"));
         BrowserUtils.waitForPageToLoad(5);
         clickMessage.click();
         BrowserUtils.wait(5);
         BrowserUtils.waitForPageToLoad(3);
 
- driver.findElement(By.xpath("//span[@id='bx-b-uploadfile-blogPostForm']")).click();
+        driver.findElement(By.xpath("//span[@id='bx-b-uploadfile-blogPostForm']")).click();
 
         BrowserUtils.waitForPageToLoad(3);
         BrowserUtils.wait(5);
@@ -147,10 +143,46 @@ public class Alex extends AbstractTestBase {
         WebElement verifyText = driver.findElement(By.xpath("//span[@class='popup-window-titlebar-text']"));
         BrowserUtils.wait(3);
         BrowserUtils.waitForPageToLoad(8);
-        String  expactedText="Select one or more documents";
-        Assert.assertEquals(verifyText.getText(),expactedText);
+        String expactedText = "Select one or more documents";
+        Assert.assertEquals(verifyText.getText(), expactedText);
         ////span[@class='popup-window-titlebar-text']
 
     }
 
+
+    @Test
+    public void clickLikes() {
+        LoginPage loginPage = new LoginPage();
+        loginPage.login();
+        BrowserUtils.waitForPageToLoad(8);
+        BrowserUtils.wait(3);
+        List<WebElement> likes = Driver.getDriver().findElements(By.xpath("//a[@href='#like']"));
+        for (WebElement eachlike : likes) {
+            eachlike.click();
+            Assert.assertTrue(eachlike.isDisplayed());
+            List<WebElement> verifylikes = driver.findElements(By.className("feed-post-emoji-text-box feed-post-emoji-move-to-right"));
+            for (WebElement displayLiks : verifylikes) {
+                String expacte = "You";
+                Assert.assertEquals(displayLiks.getText(), expacte);
+//
+            }
+        }
+    }
 }
+//        List<WebElement> verifylikes = driver.findElements(By.className("feed-post-emoji-text-box feed-post-emoji-move-to-right"));
+//        for (WebElement displayLiks: verifylikes){
+//
+//            String expacte =" kYou";
+//            Assert.assertEquals(displayLiks.getText(),expacte);
+//        }
+
+
+//div[@id='blg-post-inform-907']//div[@class='feed-post-informers-cont']
+
+
+
+//
+//        for (WebElement eachelment: workflow){
+//                BrowserUtils.wait(10);
+//                System.out.println(eachelment.getText());
+//                Assert.assertTrue(eachelment.isDisplayed());
