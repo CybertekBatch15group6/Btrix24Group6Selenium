@@ -49,11 +49,11 @@ public abstract class AbstractPageBase {
 
     //create one for MORE feature
 
-    public void navigateToMoveFeature(String moreFeature){
+    public void navigateToMoveFeature(String moreFeature) {
 
         String moreXpath = "(//span[text()='More'])[1]";
 
-        String moreFeatureXpath = "//span[@class='menu-popup-item-text' and text()='"+moreFeature+"']";
+        String moreFeatureXpath = "//span[@class='menu-popup-item-text' and text()='" + moreFeature + "']";
 
         WebElement more = driver.findElement(By.xpath(moreXpath));
 
@@ -66,16 +66,17 @@ public abstract class AbstractPageBase {
         actions.click(wait.until(ExpectedConditions.visibilityOf(more))).click(wait.until(ExpectedConditions.visibilityOf(feature))).build().perform();
 
         BrowserUtils.wait(4);
-
-  /**
-     * This method will navigate to user specified tab in ActivityStream module
-     * @param tabName user will enter tab name. Case Sensitive!!
-     */
-    public void activityNavigation(String tabName){
-        BrowserUtils.waitForPageToLoad(10);
-        String path="//span[text()='" + tabName + "']";
-        WebElement tab = driver.findElement(By.xpath(path));
-        wait.until(ExpectedConditions.visibilityOf(tab));
-        tab.click();
     }
+
+        /**
+         * This method will navigate to user specified tab in ActivityStream module
+         * @param tabName user will enter tab name. Case Sensitive!!
+         */
+        public void activityNavigation(String tabName){
+            BrowserUtils.waitForPageToLoad(10);
+            String path="//span[text()='" + tabName + "']";
+            WebElement tab = driver.findElement(By.xpath(path));
+            wait.until(ExpectedConditions.visibilityOf(tab));
+            tab.click();
+        }
 }
