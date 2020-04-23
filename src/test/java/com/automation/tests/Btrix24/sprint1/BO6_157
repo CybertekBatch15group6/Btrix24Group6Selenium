@@ -1,0 +1,13 @@
+
+As A User, I Should Be Able To Assign Tasks By Clicking On Task Tab Under Active Stream
+
+1. User Should Be Able To Click On ""High Priority"" Checkbox To Set The Current Task To A Top Priority Task.
+2. User Should Be Able To Click On Visual Editor And See The Editor Text-Bar Displays On Top Of The Message Box.
+3. User Should Be Able To Click On Upload Files Icon To Upload Files And Pictures From Local Disks, Download From External Drive, Select Documents From Bixtrix24, And Create Files To Upload.
+4. User Should Be Able To Create A Quote By Clicking On The Comma Icon.
+5. User Should Be Able To Add Mention By Clicking On The Add Mention Icon And Select Contacts From The Lists Provided In Dropdown.
+6. User Should Be Able To Attach Link By Clicking On The Link Icon.
+7. User Should Be Able To Click On ""Checklist"" To Create Checklists Items(Things To Do). User Can Add A Checklist Item By Clicking On Add Button Or Check Mark. User Can Add Separator Lines Between Checklist Items. User Can Delete A Checklist Item By Clicking On X Mark.
+8. User Can Assign The Tasks To Employees By Clicking On Add More And Selecting Contact From E-Mail User, Employees And Departments And Recent Contact Lists. Employees Can Be Added In Different Assignment Categories: Created By, Participants And Observer.
+9. User Can Add Deadline, Time Planning By Using Date Pickers.
+10. User Can Click On More To Specify The Task Details.
