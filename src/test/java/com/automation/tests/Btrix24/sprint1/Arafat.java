@@ -44,8 +44,9 @@ public class Arafat extends AbstractTestBase {
 
         activityStream.setBitrixSelectDocBtn();
         extentTest = extentReports.createTest("Upload File from Recent items section of the select document from bixtrix24 is passed Successfully!");
+
     }
 
-
+// just comment
 }
 
