@@ -39,6 +39,7 @@ public class EventTests extends AbstractTestBase {
         EventPage eventPage = new EventPage();
         eventPage.activityNavigation("Event");
         eventPage.clickUploadFilesIcon();
+
         eventPage.uploadByPath();
 
         extentTest.pass("Upload File to Event test passed Successfully!");
@@ -90,6 +91,10 @@ public class EventTests extends AbstractTestBase {
         eventPage.selectDocumentFromBitrixSalesAndMarketing();
 
         extentTest.pass("Select Document from Bitrix Sales and Marketing test passed Successfully!");
+        eventPage.clickUploadFilesBtn();
+        eventPage.uploadByPath();
+
+        extentTest.pass("Upload File to Event Successfully!");
     }
 
     @DataProvider
@@ -100,5 +105,7 @@ public class EventTests extends AbstractTestBase {
                 {"hr12@cybertekschool.com", "UserUser"}
         };
     }
+
+
 
 }
