@@ -22,12 +22,13 @@ public class EventTests extends AbstractTestBase {
         BrowserUtils.waitForPageToLoad(10);
         loginPage.login(username,password);
         EventPage eventPage = new EventPage();
-       eventPage.activityNavigation("Event");
+        eventPage.activityNavigation("Event");
         eventPage.addLinkToEvent("SIS","www.sislife.org");
 
-        extentTest.pass("Attached Link to Event Successfully!");
+        extentTest.pass("Attached Link to Event test passed Successfully!");
     }
 
+    // AC1: 1. User should be able to click on upload files icon to upload files and pictures from local disks.
     @Test (dataProvider = "credentials")
     public void uploadFileToEvent (String username, String password){
         extentTest = extentReports.createTest("Upload File to Event");
@@ -37,6 +38,59 @@ public class EventTests extends AbstractTestBase {
         loginPage.login(username,password);
         EventPage eventPage = new EventPage();
         eventPage.activityNavigation("Event");
+        eventPage.clickUploadFilesIcon();
+
+        eventPage.uploadByPath();
+
+        extentTest.pass("Upload File to Event test passed Successfully!");
+    }
+
+    // AC1: 1. User should be able to click on upload files icon to upload files from Bitrix/Recent Items.
+    @Test (dataProvider = "credentials")
+    public void selectDocumentFromBitrixRecentItems (String username, String password){
+        extentTest = extentReports.createTest("Select Document from Bitrix Recent Items");
+
+        LoginPage loginPage = new LoginPage();
+        BrowserUtils.waitForPageToLoad(10);
+        loginPage.login(username,password);
+        EventPage eventPage = new EventPage();
+        eventPage.activityNavigation("Event");
+        eventPage.clickUploadFilesIcon();
+        eventPage.selectDocumentFromBitrixRecentItems();
+
+        extentTest.pass("Select Document from Bitrix Recent Items test passed Successfully!");
+    }
+
+    // AC1: 1. User should be able to click on upload files icon to upload files from Bitrix/My Drive.
+    @Test (dataProvider = "credentials")
+    public void selectDocumentFromBitrixMyDrive (String username, String password){
+        extentTest = extentReports.createTest("Select Document from Bitrix My Drive");
+
+        LoginPage loginPage = new LoginPage();
+        BrowserUtils.waitForPageToLoad(10);
+        loginPage.login(username,password);
+        EventPage eventPage = new EventPage();
+        eventPage.activityNavigation("Event");
+        eventPage.clickUploadFilesIcon();
+        eventPage.selectDocumentFromBitrixMyDrive();
+
+        extentTest.pass("Select Document from Bitrix My Drive test passed Successfully!");
+    }
+
+    // AC1: 1. User should be able to click on upload files icon to upload files from Bitrix/Sales and Marketing.
+    @Test (dataProvider = "credentials")
+    public void selectDocumentFromBitrixSalesAndMarketing (String username, String password){
+        extentTest = extentReports.createTest("Select Document from Bitrix Sales and Marketing");
+
+        LoginPage loginPage = new LoginPage();
+        BrowserUtils.waitForPageToLoad(10);
+        loginPage.login(username,password);
+        EventPage eventPage = new EventPage();
+        eventPage.activityNavigation("Event");
+        eventPage.clickUploadFilesIcon();
+        eventPage.selectDocumentFromBitrixSalesAndMarketing();
+
+        extentTest.pass("Select Document from Bitrix Sales and Marketing test passed Successfully!");
         eventPage.clickUploadFilesBtn();
         eventPage.uploadByPath();
 
